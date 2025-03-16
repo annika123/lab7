@@ -1,28 +1,48 @@
 import 'package:flutter/material.dart';
-import 'package:lab7/utlis/constance/colors.dart';
+import 'package:icons_plus/icons_plus.dart';
 
-void main() {
-  runApp(const MyCom());
-}
+import '../../../common/widgets/app_bar.dart';
+import '../widgets/bottom_nav_bar.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int _currentIndex = 0;
+  final List<Widget> _homeScreens = [
+    Container(
+      height: double.infinity,
+      color: Colors.amber,
+    ),
+    Container(
+      height: double.infinity,
+      color: Colors.red,
+    ),
+    Container(
+      height: double.infinity,
+      color: Colors.lightBlue,
+    ),
+    Container(
+      height: double.infinity,
+      color: Colors.green,
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Mega Shop",
-          style: TextStyle(
-            fontFamily: "DMScans",
-            fontWeight: FontWeight.w700,
-            color: FColors.oceanBlue
-          ),
-        ) ,
+      appBar: FAppBar(
+        title: "Mega Shop",
+        firstIcon: Iconsax.notification_bing_outline,
       ),
-    )
-    
+      body: _homeScreens[_currentIndex],
+      bottomNavigationBar: FBottomBar(
+        currentIndex: 0,
+      ),
+    );
   }
 }

@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:lab7/screens/home/pages/home.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const FreebeesEcom());
 }
 
-class MyEcom extends StatelessWidget {
-  const MyEcom({super.key});
+class FreebeesEcom extends StatelessWidget {
+  const FreebeesEcom({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Firebies E-commerce',
-      home: Home,
+      title: "Freebees E-com",
+      debugShowCheckedModeBanner: false,
+      home: Home(),
     );
   }
 }
